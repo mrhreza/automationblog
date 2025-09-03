@@ -1,9 +1,6 @@
 # 🚀 Automation Blog
 
-![Website](https://img.shields.io/badge/Live-Online-green)  
-![Cloudflare Pages](https://img.shields.io/badge/Host-Cloudflare-blue)  
-![License](https://img.shields.io/badge/License-Free-lightgrey)  
-![GitHub](https://img.shields.io/badge/Repo-GitHub-black)
+![Website](https://img.shields.io/badge/Live-Online-green) ![Cloudflare Pages](https://img.shields.io/badge/Host-Cloudflare-blue) ![License](https://img.shields.io/badge/License-Free-lightgrey) ![GitHub](https://img.shields.io/badge/Repo-GitHub-black)
 
 ---
 
