@@ -1,39 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact - Workflow & AI Automation Blog</title>
-<link rel="stylesheet" href="assets/css/style.css">
-<link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Workflow & AI Automation Blog</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
 </head>
 <body>
-<header>
-  <h1>Contact Us</h1>
-</header>
+  <header>
+    <h1>Contact Us</h1>
+  </header>
 
-<nav>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="index.html#blog">Blog</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</nav>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#blog">Blog</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
 
+  <div class="container">
+    <p>Have questions or suggestions? Send us a message below:</p>
+    <form class="contact-form" action="https://formspree.io/f/xzzjakao" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+      <p class="form-status" style="display:none;">Thank you! Your message has been sent.</p>
+    </form>
+  </div>
 
-<div class="container">
-  <p>Have questions or suggestions? Send us a message below:</p>
-  <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</div>
+  <footer>
+    <p>© 2025 Workflow & AI Automation Blog</p>
+  </footer>
 
-<footer>
-  <p>© 2025 Workflow & AI Automation Blog</p>
-</footer>
+  <script>
+    // Optional: Display success message after submission
+    const form = document.querySelector('.contact-form');
+    const status = document.querySelector('.form-status');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(form);
+      fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          status.style.display = 'block';
+          form.reset();
+        } else {
+          response.json().then(data => {
+            alert(data.error || "Oops! There was a problem submitting your form.");
+          });
+        }
+      }).catch(err => {
+        alert("Oops! There was a problem submitting your form.");
+      });
+    });
+  </script>
 </body>
 </html>
